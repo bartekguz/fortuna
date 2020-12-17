@@ -19,13 +19,14 @@ const particlesOptions = {
 function App() {
 
     const [input, setInput] = useState('');
+    const [tableUrl, setTableUrl] = useState('');
 
     const onInputChange = (event) => {
-        console.log(event.target.value);
+        setInput(event.target.value);
     }
 
     const onButtonSubmit = () => {
-        console.log('click');
+        setTableUrl(input)
     }
 
     return (
@@ -38,7 +39,7 @@ function App() {
                 onInputChange={onInputChange}
                 onButtonSubmit={onButtonSubmit}
             />
-            <MatchesTable/>
+            <MatchesTable tableUrl={tableUrl}/>
             {/*<ResultsTable/>*/}
         </div>
     );
